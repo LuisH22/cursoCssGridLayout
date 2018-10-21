@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tamaño de item en columnas</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .container {
+            display: grid;
+            /* grid-template: filas / columnas */
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            /* grid-template-columns: 25% 50% 25%; */
+            /* grid-template-columns: 200px 200px 200px; */
+            /* fr divide el espaciado en partes iguales*/
+            /* grid-template: 300px 100px 100px / 1fr 1fr 1fr; */
+            /* grid-template: 300px 100px 100px / repeat(4, 1fr); */
+            /* grid-template: 300px 100px 100px / repeat(4, minmax(200px, 1fr)); */
+            /* grid-template: 100px 1fr 150px / 200px 1fr; */
+            grid-gap: 10px;
+            height: 100vh;
+            /* grid-template-areas: "header header" "left contenido" "footer footer" */
+        }
+        
+        .item {
+            background: lightblue;
+            border: 1px solid red;
+            /***
+            ***
+            hace el espaciado entre elementos pero genera conflictos al reducir 
+            el tamaño de el contenido.
+            ***
+            */
+            /* margin-right: 10px;
+            margin-bottom: 10px; */
+        }
+        
+        .item:nth-of-type(1) {
+            background: #0000ff;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        
+        .item:nth-of-type(8) {
+            background: #0000ff;
+            /* grid-column: 1 / span 2; */
+            grid-column: 1 / -1;
+        }
+        
+        .item:nth-of-type(7) {
+            background: #cc00ff;
+            grid-column: 2 / 4;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+        <div class="item">item #6</div>
+        <div class="item">item #7</div>
+        <div class="item">item #8</div>
+        <div class="item">item #9</div>
+        <div class="item">item #10</div>
+        <div class="item">item #11</div>
+        <div class="item">item #12</div>
+
+    </section>
+
+</body>
+
+</html>
